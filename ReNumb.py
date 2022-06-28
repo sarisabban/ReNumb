@@ -70,7 +70,8 @@ def Motif(filename, choice='residue'):
 					newline += f'{AMINO:>3} {CHAIN}'
 					newline += f'{RESIDUE:>4}{INSERT:>1}'
 				else:
-					newline = line
+					continue
+					#newline = line.strip()
 				F.write(newline + '\n')
 
 Motif(sys.argv[1], choice=sys.argv[2])
