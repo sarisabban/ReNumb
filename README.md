@@ -7,6 +7,8 @@ If you have a .pdb file with a protein structure where the first residue does NO
 ## How to use:
 Run using the following command:
 
-`python3 ReNumb.py FILENAME.pdb`
+`python3 ReNumb.py FILENAME.pdb CHOICE`
+
+Where CHOICE can be atom, residue, or chain 
 
 The script will generate a new file with the name renumbered_FILENAME.pdb
