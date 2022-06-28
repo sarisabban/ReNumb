@@ -2,11 +2,12 @@
 
 import sys
 
-def Motif(filename, choice='resid'):
+def Motif(filename, choice='residue'):
 	'''
 	Renumbers the amino acids in a PDB structure, it generates a new file
 	with the prefix FILENAME_renumbered.pdb
 	'''
+	choice = choice.lower()
 	with open(filename , 'r') as f:
 		with open(f'renumbered_{filename}', 'w') as F:
 			count = 0
@@ -39,7 +40,7 @@ def Motif(filename, choice='resid'):
 						newchain = chr(ord(newchain) + 1)
 						oldchain = CHAIN
 					if choice   == 'atom': SERIAL = count
-					elif choice == 'resid': RESIDUE = newresid
+					elif choice == 'residue': RESIDUE = newresid
 					elif choice == 'chain': CHAIN = newchain
 					newline  = f'{ATOM}  {SERIAL:>5}  {NAME:<3}{ALTLOC:>1}'
 					newline += f'{AMINO:>3} {CHAIN}'
@@ -63,7 +64,7 @@ def Motif(filename, choice='resid'):
 						newchain = chr(ord(newchain) + 1)
 						oldchain = CHAIN
 					if choice   == 'atom': SERIAL = count
-					elif choice == 'resid': RESIDUE = newresid
+					elif choice == 'residue': RESIDUE = newresid
 					elif choice == 'chain': CHAIN = newchain
 					newline  = f'{TER}   {SERIAL:>5}  {NAME:<3}{ALTLOC:>1}'
 					newline += f'{AMINO:>3} {CHAIN}'
